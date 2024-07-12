@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "proto-go/linkedin-data;linkedin_data_pb";
+
+package linkedinData;
+
+message User {
+  // The vanity name of the user, as it appears in its LinkedIn profile URL.
+  string public_identifier = 1;
+  // The preferred first name of the user.
+  string first_name = 2;
+  // The preferred last name of the user.
+  string last_name = 3;
+  // A link to a profile picture for the user.
+  string profile_picture_url = 4;
+}
+
+message Company {
+  // The vanity name of the company, as it appears in its LinkedIn profile URL.
+  string public_identifier = 1;
+  // The name of the company.
+  string name = 2;
+  // A link to a profile picture for the company.
+  string profile_picture_url = 3;
+}

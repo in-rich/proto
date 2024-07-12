@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "proto/authentication/common.proto";
+
+option go_package = "proto-go/authentication;authentication_pb";
+
+package authentication;
+
+service GetUser {
+  // Retrieves a user's data.
+  rpc GetUser (GetUserRequest) returns (User) {}
+}
+
+message GetUserRequest {
+  // The firebase user ID of the user.
+  string firebase_uid = 1;
+}

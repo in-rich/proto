@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "proto/authentication/common.proto";
+
+option go_package = "proto-go/authentication;authentication_pb";
+
+package authentication;
+
+service Authenticate {
+  // Validate an authentication token, and return the corresponding user data.
+  rpc Authenticate (AuthenticateRequest) returns (User) {}
+}
+
+message AuthenticateRequest {
+  // The firebase authentication token.
+  string token = 1;
+}

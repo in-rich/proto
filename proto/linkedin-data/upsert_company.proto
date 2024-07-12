@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "proto/linkedin-data/common.proto";
+
+option go_package = "proto-go/linkedin-data;linkedin_data_pb";
+
+package linkedinData;
+
+service UpsertCompany {
+  // Update the LinkedIn data of a company.
+  rpc UpsertCompany (UpsertCompanyRequest) returns (Company) {}
+}
+
+message UpsertCompanyRequest {
+  // The vanity name of the company, as it appears in its LinkedIn profile URL.
+  string public_identifier = 1;
+  // The name of the company.
+  string name = 2;
+  // The base64 encoded version of the company's logo.
+  string profile_picture_base64 = 3;
+}

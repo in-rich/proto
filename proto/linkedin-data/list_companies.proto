@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "proto/linkedin-data/common.proto";
+
+option go_package = "proto-go/linkedin-data;linkedin_data_pb";
+
+package linkedinData;
+
+service ListCompanies {
+  // Retrieves a list of companies LinkedIn profile data.
+  rpc ListCompanies (ListCompaniesRequest) returns (ListCompaniesResponse) {}
+}
+
+message ListCompaniesRequest {
+  // The vanity name of the companies, as they appear in their LinkedIn profile URL.
+  repeated string public_identifiers = 1;
+}
+
+message ListCompaniesResponse {
+  // The list of companies.
+  repeated Company companies = 1;
+}

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "proto-go/linkedin-data;linkedin_data_pb";
+
+package linkedinData;
+
+service GetCompanyLastUpdate {
+  // Retrieves a company's LinkedIn profile data.
+  rpc GetCompanyLastUpdate (GetCompanyLastUpdateRequest) returns (GetCompanyLastUpdateResponse) {}
+}
+
+message GetCompanyLastUpdateRequest {
+  // The vanity name of the company, as it appears in its LinkedIn profile URL.
+  string public_identifier = 1;
+}
+
+message GetCompanyLastUpdateResponse {
+  // The timestamp of the company information latest update.
+  google.protobuf.Timestamp updated_at = 1;
+}

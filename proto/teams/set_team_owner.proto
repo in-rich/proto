@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "proto/teams/common.proto";
+
+option go_package = "proto-go/teams;teams_pb";
+
+package teams;
+
+service SetTeamOwner {
+  // Sets the owner of a team.
+  rpc SetTeamOwner (SetTeamOwnerRequest) returns (Team) {}
+}
+
+message SetTeamOwnerRequest {
+  // The id of the team.
+  string team_id = 1;
+  // The id of the new owner of the team.
+  string owner_id = 2;
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "proto-go/subscription;subscription_pb";
+
+package subscription;
+
+service CanUpdateNote {
+  // Check if a note can be updated. If at least one edit is available, count a new edit and return the
+  // remaining number of edits.
+  rpc CanUpdateNote (CanUpdateNoteRequest) returns (CanUpdateNoteResponse) {}
+}
+
+message CanUpdateNoteRequest {
+  // The target of a note indicates what type of LinkedIn profile this note belongs to.
+  string target = 1;
+  // The vanity name of the LinkedIn profile, as it appears in its LinkedIn profile URL.
+  string public_identifier = 2;
+  // The id of the note's author.
+  string author_id = 3;
+  // Only return the remaining number of edits, without counting this request as an edit.
+  bool read_only = 4;
+}
+
+message CanUpdateNoteResponse {
+  // The number of remaining edits the user can still perform.
+  int32 remaining_edits = 1;
+}

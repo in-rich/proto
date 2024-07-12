@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "proto/linkedin-data/common.proto";
+
+option go_package = "proto-go/linkedin-data;linkedin_data_pb";
+
+package linkedinData;
+
+service ListUsers {
+  // Retrieves a list of users LinkedIn profile data.
+  rpc ListUsers (ListUsersRequest) returns (ListUsersResponse) {}
+}
+
+message ListUsersRequest {
+  // The vanity name of the users, as they appear in their LinkedIn profile URL.
+  repeated string public_identifiers = 1;
+}
+
+message ListUsersResponse {
+  // The list of users.
+  repeated User users = 1;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "proto/teams/common.proto";
+
+option go_package = "proto-go/teams;teams_pb";
+
+package teams;
+
+service UpdateTeam {
+  // Updates a team.
+  rpc UpdateTeam (UpdateTeamRequest) returns (Team) {}
+}
+
+message UpdateTeamRequest {
+  // The id of the team.
+  string team_id = 1;
+  // The new name of the team.
+  string name = 2;
+}

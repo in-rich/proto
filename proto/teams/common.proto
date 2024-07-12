@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "proto-go/teams;teams_pb";
+
+package teams;
+
+message Team {
+  // The id of the team.
+  string team_id = 1;
+  // The name of the team. This name is not unique.
+  string name = 2;
+  // The id of the team's owner.
+  string owner_id = 3;
+}
+
+message TeamMember {
+  // The id of the team member.
+  string user_id = 1;
+  // The id of the team.
+  string team_id = 2;
+  // The role of the team member.
+  string role = 3;
+}

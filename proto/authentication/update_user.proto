@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "proto/authentication/common.proto";
+
+option go_package = "proto-go/authentication;authentication_pb";
+
+package authentication;
+
+service UpdateUser {
+  // Update custom data for firebase users.
+  rpc UpdateUser (UpdateUserRequest) returns (User) {}
+}
+
+message UpdateUserRequest {
+  // The firebase authentication token.
+  string token = 1;
+  // The vanity name of the user, as it appears in its LinkedIn profile URL.
+  string public_identifier = 2;
+}

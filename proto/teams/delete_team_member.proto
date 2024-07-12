@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "proto-go/teams;teams_pb";
+
+package teams;
+
+service DeleteTeamMember {
+  // Deletes a member of a team.
+  rpc DeleteTeamMember (DeleteTeamMemberRequest) returns (google.protobuf.Empty) {}
+}
+
+message DeleteTeamMemberRequest {
+  // The id of the team.
+  string team_id = 1;
+  // The id of the user.
+  string user_id = 2;
+}

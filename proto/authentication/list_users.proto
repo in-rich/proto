@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "proto/authentication/common.proto";
+
+option go_package = "proto-go/authentication;authentication_pb";
+
+package authentication;
+
+service ListUsers {
+  // Retrieves a list of users LinkedIn profile data.
+  rpc ListUsers (ListUsersRequest) returns (ListUsersResponse) {}
+}
+
+message ListUsersRequest {
+  // The ids of targeted firebase users.
+  repeated string firebase_uids = 1;
+}
+
+message ListUsersResponse {
+  // The list of users.
+  repeated User users = 1;
+}

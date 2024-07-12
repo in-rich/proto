@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "proto/teams/common.proto";
+
+option go_package = "proto-go/teams;teams_pb";
+
+package teams;
+
+service CreateTeam {
+  // Creates a new team.
+  rpc CreateTeam (CreateTeamRequest) returns (Team) {}
+}
+
+message CreateTeamRequest {
+  // The name of the team.
+  string name = 1;
+  // The id of the user creating the team.
+  string creator_id = 2;
+}

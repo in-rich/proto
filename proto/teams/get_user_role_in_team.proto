@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "proto-go/teams;teams_pb";
+
+package teams;
+
+service GetUserRoleInTeam {
+  // Retrieves the role of a user in a team.
+  rpc GetUserRoleInTeam (GetUserRoleInTeamRequest) returns (GetUserRoleInTeamResponse) {}
+}
+
+message GetUserRoleInTeamRequest {
+  // The id of the team.
+  string team_id = 1;
+  // The id of the user.
+  string user_id = 2;
+}
+
+message GetUserRoleInTeamResponse {
+  // The role of the user in the team.
+  string role = 1;
+}

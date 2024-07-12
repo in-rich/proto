@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "proto/notes/common.proto";
+
+option go_package = "proto-go/notes;notes_pb";
+
+package notes;
+
+service ListNotes {
+  // Retrieves a note.
+  rpc ListNotes (ListNotesRequest) returns (ListNotesResponse) {}
+}
+
+message ListNoteFilter {
+  // The target of a note indicates what type of LinkedIn profile this note belongs to.
+  string target = 1;
+  // The vanity name of the LinkedIn profile, as it appears in its LinkedIn profile URL.
+  string public_identifier = 2;
+}
+
+message ListNotesRequest {
+  repeated ListNoteFilter filters = 1;
+  // The id of the note's author.
+  string author_id = 2;
+}
+
+message ListNotesResponse {
+  // The list of retrieved notes.
+  repeated Note notes = 1;
+}

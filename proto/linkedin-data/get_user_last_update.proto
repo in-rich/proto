@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "proto-go/linkedin-data;linkedin_data_pb";
+
+package linkedinData;
+
+service GetUserLastUpdate {
+  // Retrieves a user's LinkedIn profile data.
+  rpc GetUserLastUpdate (GetUserLastUpdateRequest) returns (GetUserLastUpdateResponse) {}
+}
+
+message GetUserLastUpdateRequest {
+  // The vanity name of the user, as it appears in its LinkedIn profile URL.
+  string public_identifier = 1;
+}
+
+message GetUserLastUpdateResponse {
+  // The timestamp of the user information latest update.
+  google.protobuf.Timestamp updated_at = 1;
+}

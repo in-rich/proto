@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "proto-go/authentication;authentication_pb";
+
+package authentication;
+
+message User {
+  // The vanity name of the user, as it appears in its LinkedIn profile URL.
+  string public_identifier = 1;
+  // The firebase user ID of the user.
+  string firebase_uid = 2;
+  // The firebase email of the user.
+  string email = 3;
+}

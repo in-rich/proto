@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "proto-go/notes;notes_pb";
+
+import "google/protobuf/timestamp.proto";
+
+package notes;
+
+message Note {
+  // The target of a note indicates what type of LinkedIn profile this note belongs to.
+  string target = 1;
+  // The vanity name of the LinkedIn profile, as it appears in its LinkedIn profile URL.
+  string public_identifier = 2;
+  // The note content.
+  string content = 3;
+  // The timestamp of the note latest update.
+  google.protobuf.Timestamp updated_at = 4;
+  // The id of the note's author.
+  string author_id = 5;
+}

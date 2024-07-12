@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "proto-go/discussions;discussions_pb";
+
+import "proto/discussions/common.proto";
+
+package discussions;
+
+service CreateMessage {
+  // Creates a message in a discussion.
+  rpc CreateMessage (CreateMessageRequest) returns (Message) {}
+}
+
+message CreateMessageRequest {
+  // The target of a note indicates what type of LinkedIn profile this message belongs to.
+  string target = 1;
+  // The vanity name of the LinkedIn profile, as it appears in its LinkedIn profile URL.
+  string public_identifier = 2;
+  // The ID of the team.
+  string team_id = 3;
+  // The id of the note's author.
+  string author_id = 4;
+  // The message content.
+  string content = 5;
+}

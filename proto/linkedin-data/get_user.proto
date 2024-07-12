@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "proto/linkedin-data/common.proto";
+
+option go_package = "proto-go/linkedin-data;linkedin_data_pb";
+
+package linkedinData;
+
+service GetUser {
+  // Retrieves a user's LinkedIn profile data.
+  rpc GetUser (GetUserRequest) returns (User) {}
+}
+
+message GetUserRequest {
+  // The vanity name of the user, as it appears in its LinkedIn profile URL.
+  string public_identifier = 1;
+}
