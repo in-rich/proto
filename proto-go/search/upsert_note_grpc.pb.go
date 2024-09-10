@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v5.28.0
-// source: proto/notes/upsert_note.proto
+// source: proto/search/upsert_note.proto
 
-package notes_pb
+package search_pb
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UpsertNote_UpsertNote_FullMethodName = "/notes.UpsertNote/UpsertNote"
+	UpsertNote_UpsertNote_FullMethodName = "/search.UpsertNote/UpsertNote"
 )
 
 // UpsertNoteClient is the client API for UpsertNote service.
@@ -110,7 +110,7 @@ func _UpsertNote_UpsertNote_Handler(srv interface{}, ctx context.Context, dec fu
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UpsertNote_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "notes.UpsertNote",
+	ServiceName: "search.UpsertNote",
 	HandlerType: (*UpsertNoteServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -119,5 +119,5 @@ var UpsertNote_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/notes/upsert_note.proto",
+	Metadata: "proto/search/upsert_note.proto",
 }
