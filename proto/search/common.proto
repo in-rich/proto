@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "proto-go/search;search_pb";
+
+package search;
+
+message Note {
+    // ID of the note in the notes service.
+    string note_id = 1;
+    // ID of the user in the authentication service.
+    string author_id = 2;
+}

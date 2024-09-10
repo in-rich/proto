@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "proto/search/common.proto";
+
+option go_package = "proto-go/search;search_pb";
+
+package search;
+
+service UpsertNote {
+  // Upsert a note.
+  rpc UpsertNote (UpsertNoteRequest) returns (UpsertNoteResponse) {}
+}
+
+message UpsertNoteRequest {
+  // The id of the note.
+  string note_id = 1;
+  // The id of the note's author.
+  string author_id = 2;
+  // The note content.
+  string content = 3;
+  // The vanity name of the LinkedIn profile, as it appears in its LinkedIn profile URL.
+  string public_identifier = 4;
+  // The full name of the target, as it appears in LinkedIn.
+  string target_name = 5;
+}
+
+message UpsertNoteResponse {
+  // The saved value of the note. It returns nothing if the note was deleted (no content).
+  optional Note note = 1;
+}
