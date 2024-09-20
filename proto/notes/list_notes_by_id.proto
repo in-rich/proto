@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+import "proto/notes/common.proto";
+
+option go_package = "proto-go/notes;notes_pb";
+
+package notes;
+
+service ListNotesByID {
+  // Retrieves a note.
+  rpc ListNotesByID (ListNotesByIDRequest) returns (ListNotesByIDResponse) {}
+}
+
+message ListNotesByIDRequest {
+  // The id of the notes to retrieve.
+  repeated string ID_id = 1;
+  // The maximum number of notes to retrieve.
+  int64 limit = 2;
+  // The offset to start retrieving notes.
+  int64 offset = 3;
+}
+
+message ListNotesByIDResponse {
+  // The list of retrieved notes.
+  repeated Note notes = 1;
+}
