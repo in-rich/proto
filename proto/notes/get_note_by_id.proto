@@ -8,7 +8,7 @@ package notes;
 
 service GetNoteByID {
   // Retrieves a note.
-  rpc GetNoteByID (GetNoteByIDRequest) returns (GetNoteByIDResponse) {}
+  rpc GetNoteByID (GetNoteByIDRequest) returns (Note) {}
 }
 
 message GetNoteByIDRequest {
