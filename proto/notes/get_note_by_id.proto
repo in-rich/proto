@@ -6,19 +6,14 @@ option go_package = "proto-go/notes;notes_pb";
 
 package notes;
 
-service ListNotesByID {
+service GetNoteByID {
   // Retrieves a note.
-  rpc ListNotesByID (ListNotesByIDRequest) returns (ListNotesByIDResponse) {}
+  rpc GetNoteByID (GetNoteByIDRequest) returns (GetNoteByIDResponse) {}
 }
 
-message ListNotesByIDRequest {
+message GetNoteByIDRequest {
   // The id of the notes to retrieve.
   repeated string note_id = 1;
   // The id of the note's author.
   string author_id = 2;
-}
-
-message ListNotesByIDResponse {
-  // The list of retrieved notes.
-  repeated Note notes = 1;
 }

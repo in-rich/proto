@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.34.2
 // 	protoc        v4.25.4
-// source: proto/notes/list_notes_by_id.proto
+// source: proto/notes/get_note_by_id.proto
 
 package notes_pb
 
