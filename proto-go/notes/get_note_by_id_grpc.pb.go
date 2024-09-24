@@ -27,7 +27,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type GetNoteByIDClient interface {
 	// Retrieves a note.
-	GetNoteByID(ctx context.Context, in *GetNoteByIDRequest, opts ...grpc.CallOption) (*GetNoteByIDResponse, error)
+	GetNoteByID(ctx context.Context, in *GetNoteByIDRequest, opts ...grpc.CallOption) (*Note, error)
 }
 
 type getNoteByIDClient struct {
@@ -38,9 +38,9 @@ func NewGetNoteByIDClient(cc grpc.ClientConnInterface) GetNoteByIDClient {
 	return &getNoteByIDClient{cc}
 }
 
-func (c *getNoteByIDClient) GetNoteByID(ctx context.Context, in *GetNoteByIDRequest, opts ...grpc.CallOption) (*GetNoteByIDResponse, error) {
+func (c *getNoteByIDClient) GetNoteByID(ctx context.Context, in *GetNoteByIDRequest, opts ...grpc.CallOption) (*Note, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetNoteByIDResponse)
+	out := new(Note)
 	err := c.cc.Invoke(ctx, GetNoteByID_GetNoteByID_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -53,7 +53,7 @@ func (c *getNoteByIDClient) GetNoteByID(ctx context.Context, in *GetNoteByIDRequ
 // for forward compatibility.
 type GetNoteByIDServer interface {
 	// Retrieves a note.
-	GetNoteByID(context.Context, *GetNoteByIDRequest) (*GetNoteByIDResponse, error)
+	GetNoteByID(context.Context, *GetNoteByIDRequest) (*Note, error)
 	mustEmbedUnimplementedGetNoteByIDServer()
 }
 
@@ -64,7 +64,7 @@ type GetNoteByIDServer interface {
 // pointer dereference when methods are called.
 type UnimplementedGetNoteByIDServer struct{}
 
-func (UnimplementedGetNoteByIDServer) GetNoteByID(context.Context, *GetNoteByIDRequest) (*GetNoteByIDResponse, error) {
+func (UnimplementedGetNoteByIDServer) GetNoteByID(context.Context, *GetNoteByIDRequest) (*Note, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetNoteByID not implemented")
 }
 func (UnimplementedGetNoteByIDServer) mustEmbedUnimplementedGetNoteByIDServer() {}

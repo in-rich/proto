@@ -8,12 +8,12 @@ package notes;
 
 service GetNoteByID {
   // Retrieves a note.
-  rpc GetNoteByID (GetNoteByIDRequest) returns (GetNoteByIDResponse) {}
+  rpc GetNoteByID (GetNoteByIDRequest) returns (Note) {}
 }
 
 message GetNoteByIDRequest {
   // The id of the notes to retrieve.
-  repeated string note_id = 1;
+  string note_id = 1;
   // The id of the note's author.
   string author_id = 2;
 }
