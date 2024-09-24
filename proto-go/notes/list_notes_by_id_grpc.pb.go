@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v4.25.4
-// source: proto/notes/list_notes_by_id.proto
+// source: proto/notes/get_note_by_id.proto
 
 package notes_pb
 
@@ -119,5 +119,5 @@ var ListNotesByID_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/notes/list_notes_by_id.proto",
+	Metadata: "proto/notes/get_note_by_id.proto",
 }
