@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "proto/search/common.proto";
+
+option go_package = "proto-go/search;search_pb";
+
+package search;
+
+service UpsertMessage {
+  // Upsert a message.
+  rpc UpsertMessage (UpsertMessageRequest) returns (UpsertMessageResponse) {}
+}
+
+message UpsertMessageRequest {
+  // The ID of the team.
+  string team_id = 1;
+  // The ID of the message.
+  string message_id = 2;
+  // The message content.
+  string content = 3;
+  // The vanity name of the LinkedIn profile, as it appears in its LinkedIn profile URL.
+  string public_identifier = 4;
+  // The full name of the target, as it appears in LinkedIn.
+  string target_name = 5;
+}
+
+message UpsertMessageResponse {
+  // The saved value of the message. It returns nothing if the message was deleted (no content).
+  optional Message message = 1;
+}

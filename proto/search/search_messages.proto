@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "proto/search/common.proto";
+
+option go_package = "proto-go/search;search_pb";
+
+package search;
+
+service SearchMessages {
+  rpc SearchMessages (SearchMessagesRequest) returns (SearchMessagesResponse) {}
+}
+
+message SearchMessagesRequest {
+  // Search string entered by the user.
+  string search = 1;
+  // The id of the team.
+  string team_id = 2;
+}
+
+message SearchMessagesResponse {
+  // The list of retrieved messages.
+  repeated Message messages = 1;
+}
