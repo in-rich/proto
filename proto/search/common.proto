@@ -10,3 +10,10 @@ message Note {
     // ID of the user in the authentication service.
     string author_id = 2;
 }
+
+message Message {
+    // The ID of the team in the discussions service.
+    string team_id = 1;
+    // The ID of the message in the discussions service.
+    string message_id = 2;
+}
