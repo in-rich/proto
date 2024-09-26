@@ -15,6 +15,10 @@ message SearchMessagesRequest {
   string search = 1;
   // The id of the team.
   string team_id = 2;
+  // The maximum number of messages to retrieve.
+  int64 limit = 3;
+  // The offset to start retrieving messages.
+  int64 offset = 4;
 }
 
 message SearchMessagesResponse {
