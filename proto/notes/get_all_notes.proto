@@ -11,15 +11,9 @@ service GetAllNotes {
   rpc GetAllNotes (GetAllNotesRequest) returns (GetAllNotesResponse) {}
 }
 
-message GetAllNoteFilter {
+message GetAllNotesRequest {
   int64 limit = 1;
   int64 offset = 2;
-}
-
-message GetAllNotesRequest {
-  repeated GetAllNoteFilter filters = 1;
-  // The id of the note's author.
-  string author_id = 2;
 }
 
 message GetAllNotesResponse {
