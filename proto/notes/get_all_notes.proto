@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+import "proto/notes/common.proto";
+
+option go_package = "proto-go/notes;notes_pb";
+
+package notes;
+
+service GetAllNotes {
+  // Retrieves a note.
+  rpc GetAllNotes (GetAllNotesRequest) returns (GetAllNotesResponse) {}
+}
+
+message GetAllNoteFilter {
+  int64 limit = 1;
+  int64 offset = 2;
+}
+
+message GetAllNotesRequest {
+  repeated GetAllNoteFilter filters = 1;
+  // The id of the note's author.
+  string author_id = 2;
+}
+
+message GetAllNotesResponse {
+  // The GetAll of retrieved notes.
+  repeated Note notes = 1;
+}
