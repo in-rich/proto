@@ -25,4 +25,6 @@ message UpsertNoteRequest {
 message UpsertNoteResponse {
   // The saved value of the note. It returns nothing if the note was deleted (no content).
   optional Note note = 1;
+  // The ID of the note. We add it here in case the note was deleted.
+  string id = 2;
 }
