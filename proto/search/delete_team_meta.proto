@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option go_package = "proto-go/search;search_pb";
+
+package search;
+
+service DeleteTeamMeta {
+  // Delete a team meta.
+  rpc DeleteTeamMeta (DeleteTeamMetaRequest) returns (google.protobuf.Empty) {}
+}
+
+message DeleteTeamMetaRequest {
+  // The ID of the team.
+  string team_id = 1;
+  // The ID of the user.
+  string user_id = 2;
+}
