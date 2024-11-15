@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "proto-go/teams;teams_pb";
+
+service CreateInvitationCode {
+  rpc CreateInvitationCode (CreateInvitationCodeRequest) returns (CreateInvitationCodeResponse) {}
+}
+
+message CreateInvitationCodeRequest {
+  string team_id = 1;
+}
+
+message CreateInvitationCodeResponse {
+  string code = 1;
+}

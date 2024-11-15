@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "proto-go/teams;teams_pb";
+
+service JoinTeamWIthInvitation {
+    rpc JoinTeamWIthInvitation (JoinTeamWIthInvitationRequest) returns (JoinTeamWIthInvitationResponse) {}
+}
+
+message JoinTeamWIthInvitationRequest {
+  string code = 1;
+  string user_id = 2;
+}
+
+message JoinTeamWIthInvitationResponse {
+  string team_id = 1;
+}
