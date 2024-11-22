@@ -17,10 +17,3 @@ message Message {
     // The ID of the message in the discussions service.
     string message_id = 2;
 }
-
-message TeamMeta {
-    // The ID of the team in the discussions service.
-    string team_id = 1;
-    // ID of the user in the authentication service.
-    string user_id = 2;
-}
