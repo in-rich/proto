@@ -45,4 +45,6 @@ message DiscussionReadStatus {
   string user_id = 4;
   // The ID of the latest read message.
   string latest_read_message_id = 5;
+  // Whether the discussion has unread messages.
+  bool has_unread_messages = 6;
 }

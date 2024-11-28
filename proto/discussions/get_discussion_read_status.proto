@@ -20,4 +20,6 @@ message GetDiscussionReadStatusRequest {
   string team_id = 3;
   // The ID of the user.
   string user_id = 4;
+
+  bool has_unread_messages = 5;
 }
