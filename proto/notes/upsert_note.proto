@@ -2,6 +2,8 @@ syntax = "proto3";
 
 import "proto/notes/common.proto";
 
+import "google/protobuf/timestamp.proto";
+
 option go_package = "proto-go/notes;notes_pb";
 
 package notes;
@@ -20,6 +22,8 @@ message UpsertNoteRequest {
   string content = 3;
   // The id of the note's author.
   string author_id = 4;
+
+  optional google.protobuf.Timestamp updated_at = 5;
 }
 
 message UpsertNoteResponse {

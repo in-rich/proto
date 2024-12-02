@@ -4,6 +4,8 @@ option go_package = "proto-go/discussions;discussions_pb";
 
 import "proto/discussions/common.proto";
 
+import "google/protobuf/timestamp.proto";
+
 package discussions;
 
 service CreateMessage {
@@ -22,4 +24,6 @@ message CreateMessageRequest {
   string author_id = 4;
   // The message content.
   string content = 5;
+
+  optional google.protobuf.Timestamp updated_at = 6;
 }
