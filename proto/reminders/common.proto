@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "proto-go/reminders;reminders_pb";
+
+import "google/protobuf/timestamp.proto";
+
+package reminders;
+
+message Reminder {
+  // The target of a reminder indicates what type of LinkedIn profile this note belongs to.
+  string target = 1;
+  // The vanity name of the LinkedIn profile, as it appears in its LinkedIn profile URL.
+  string public_identifier = 2;
+  // The reminder content.
+  string content = 3;
+  // The timestamp of the reminder latest update.
+  google.protobuf.Timestamp updated_at = 4;
+  // The timestamp of the reminder due date.
+  google.protobuf.Timestamp expired_at = 5;
+  // The id of the reminder's author.
+  string author_id = 6;
+  // the id of the reminder.
+  string note_id = 7;
+}

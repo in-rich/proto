@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "proto/reminders/common.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "proto-go/reminders;reminders_pb";
+
+package reminders;
+
+service UpsertReminder {
+  // Upsert a reminder.
+  rpc UpsertReminder (UpsertReminderRequest) returns (UpsertReminderResponse) {}
+}
+
+message UpsertReminderRequest {
+  // The target of a reminder indicates what type of LinkedIn profile this reminder belongs to.
+  string target = 1;
+  // The vanity name of the LinkedIn profile, as it appears in its LinkedIn profile URL.
+  string public_identifier = 2;
+  // The reminder content.
+  string content = 3;
+  // The id of the reminder's author.
+  string author_id = 4;
+  // The timestamp of the reminder due date.
+  google.protobuf.Timestamp expired_at = 5;
+}
+
+message UpsertReminderResponse {
+  // The saved value of the reminder. It returns nothing if the reminder was deleted (no content).
+  optional Reminder reminder = 1;
+  // The ID of the reminder. We add it here in case the reminder was deleted.
+  string id = 2;
+}
