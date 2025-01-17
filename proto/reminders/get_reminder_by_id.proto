@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "proto/reminders/common.proto";
+
+option go_package = "proto-go/reminders;reminders_pb";
+
+package reminders;
+
+service GetReminderByID {
+  // Retrieves a reminder.
+  rpc GetReminderByID (GetReminderByIDRequest) returns (Reminder) {}
+}
+
+message GetReminderByIDRequest {
+  // The id of the reminders to retrieve.
+  string reminder_id = 1;
+  // The id of the reminder's author.
+  string author_id = 2;
+}
