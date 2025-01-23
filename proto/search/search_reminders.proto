@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "proto/search/common.proto";
+
+option go_package = "proto-go/search;search_pb";
+
+package search;
+
+service SearchReminders {
+  rpc SearchReminder (SearchRemindersRequest) returns (SearchRemindersResponse) {}
+}
+
+message SearchRemindersRequest {
+  // Search string entered by the user.
+  string search = 1;
+  // The id of the reminder's author.
+  string author_id = 2;
+  // The maximum number of reminders to retrieve.
+  int64 limit = 3;
+  // The offset to start retrieving reminders.
+  int64 offset = 4;
+}
+
+message SearchRemindersResponse {
+  // The list of retrieved reminders.
+  repeated Reminder reminders = 1;
+}

@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v4.25.4
-// source: proto/reminders/upsert_reminder.proto
+// source: proto/search/upsert_reminder.proto
 
-package reminders_pb
+package search_pb
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UpsertReminder_UpsertReminder_FullMethodName = "/reminders.UpsertReminder/UpsertReminder"
+	UpsertReminder_UpsertReminder_FullMethodName = "/search.UpsertReminder/UpsertReminder"
 )
 
 // UpsertReminderClient is the client API for UpsertReminder service.
@@ -110,7 +110,7 @@ func _UpsertReminder_UpsertReminder_Handler(srv interface{}, ctx context.Context
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UpsertReminder_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "reminders.UpsertReminder",
+	ServiceName: "search.UpsertReminder",
 	HandlerType: (*UpsertReminderServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -119,5 +119,5 @@ var UpsertReminder_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/reminders/upsert_reminder.proto",
+	Metadata: "proto/search/upsert_reminder.proto",
 }

@@ -24,3 +24,10 @@ message TeamMeta {
     // ID of the user in the authentication service.
     string user_id = 2;
 }
+
+message Reminder {
+    // ID of the reminder in the reminders service.
+    string reminder_id = 1;
+    // ID of the user in the authentication service.
+    string author_id = 2;
+}
