@@ -2,6 +2,8 @@ syntax = "proto3";
 
 import "proto/search/common.proto";
 
+import "google/protobuf/timestamp.proto";
+
 option go_package = "proto-go/search;search_pb";
 
 package search;
@@ -22,6 +24,8 @@ message UpsertMessageRequest {
   string public_identifier = 4;
   // The full name of the target, as it appears in LinkedIn.
   string target_name = 5;
+
+  optional google.protobuf.Timestamp updated_at = 6;
 }
 
 message UpsertMessageResponse {
