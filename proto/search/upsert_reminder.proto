@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "proto/search/common.proto";
+
+option go_package = "proto-go/search;search_pb";
+
+package search;
+
+import "google/protobuf/timestamp.proto";
+
+service UpsertReminder {
+  // Upsert a reminder.
+  rpc UpsertReminder (UpsertReminderRequest) returns (UpsertReminderResponse) {}
+}
+
+message UpsertReminderRequest {
+  // The id of the reminder.
+  string reminder_id = 1;
+  // The id of the reminder's author.
+  string author_id = 2;
+  // The reminder content.
+  string content = 3;
+  // The vanity name of the LinkedIn profile, as it appears in its LinkedIn profile URL.
+  string public_identifier = 4;
+  // The full name of the target, as it appears in LinkedIn.
+  string target_name = 5;
+  // The timestamp of the reminder due date.
+  google.protobuf.Timestamp expired_at = 6;
+}
+
+message UpsertReminderResponse {
+  // The saved value of the reminder. It returns nothing if the reminder was deleted (no content).
+  optional Reminder reminder = 1;
+}
